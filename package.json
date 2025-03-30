@@ -1,0 +1,27 @@
+{
+  "name": "env-change-runtime",
+  "author": "p.kalucki https://github.com/kalucki",
+  "version": "1.0.0",
+  "description": "Read enironment variables from a file and dynamically change them in javascript runtime",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "clean": "del-cli ./lib",
+    "build": "npm run clean && tsc -p ./tsconfig.json",
+    "prepack": "npm run build"
+  },
+  "keywords": [
+    "change env",
+    "runtime envs",
+    "read envs from file in runtime"
+  ],
+  "license": "ISC",
+  "files": [
+    "lib/**/*"
+  ],
+  "devDependencies": {
+    "del-cli": "^6.0.0",
+    "typescript": "^5.8.2"
+  }
+}
