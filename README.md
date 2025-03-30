@@ -37,18 +37,10 @@ Before you can access environment variables, you must initialize the library. Th
 
 ### `init` Method
 
-**Signature:**
-
-```ts
-init({
-  pathToEnv?: string,    // URL or relative path to your .env file. Defaults to '/.env'
-}): Promise<void>
-```
-
 **Examples:**
 
 - **Initialization:**
-  Put this somewhere in the starting point of your application, to make sure the app starts only after we load variables. In most cases it will be your App, main or index .ts/js/tsx
+  Put this somewhere at the starting point of your application, to make sure the app starts only after we load variables. In most cases it will be your App, main or index .ts/js/tsx
 
 ```js
 await init({ pathToEnv: "/.env" });
@@ -101,6 +93,6 @@ await init({ pathToEnv: "/.env", isDev: false });
 
 # But again...why?
 
-Sometimes you want to build the application with a specific set of environment variables but then use different environmen variables in the runtime.
-I was faced with a problem like that and this was the best solution that came to my mind. I stumbled upon the same problem on a different project, so I decided to create a small library, just in case it helps someone.
-There are other ways of achieving the same goal, but I found that this works well for me.
+Sometimes you want to build the application with a specific set of environment variables but then use different environment variables in the runtime.
+I was faced with a problem like that and this was the best solution that came to my mind. After some time I stumbled upon the same problem on a different project, so I decided to create a small library, just in case it helps someone and for myself so that I don't need to copy the code again in the future.
+There are other, possibly betteer ways of achieving the same goal, but I found that this works well for me.
