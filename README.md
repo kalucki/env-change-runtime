@@ -6,6 +6,8 @@ This library was created to solve a specific problem of having to **read environ
 
 It works by simply reading the contents of an .env file, parsing it and then exposing them to be available in the context of the application. There is a simple cache to avoid fetching the file multiple times.
 
+In order to achieve the wanted effect, remember that you need to serve the .env file from your http server.
+
 # Usage
 
 ## Installation
@@ -63,7 +65,7 @@ getEnvVariables(): { [key: string]: string }
 ```js
 const envVars = await getEnvVariables();
 console.log(envVars);
-// Output might be: { TEST_ENV: 'hello_kitty'}
+// Output might be: { MY_TEST_TOKEN: '2137'}
 ```
 
 ## Cache Management
@@ -82,8 +84,18 @@ clearCache(): void
 
 ```js
 clearCache();
-await init({ pathToEnv: "/.env", isDev: false });
+await init({ pathToEnv: "/.env" });
 ```
+
+## When using Docker
+
+If you are using docker, you can pipe your environment variables into the file like so:
+
+```bash
+env > /your/app/root/.env
+```
+
+Beware that this will pipe all your environment variables from that container, so make sure that no secrets are being exposed.
 
 ## What to Look Out For
 
@@ -93,6 +105,6 @@ await init({ pathToEnv: "/.env", isDev: false });
 
 # But again...why?
 
-Sometimes you want to build the application with a specific set of environment variables but then use different environment variables in the runtime.
-I was faced with a problem like that and this was the best solution that came to my mind. After some time I stumbled upon the same problem on a different project, so I decided to create a small library, just in case it helps someone and for myself so that I don't need to copy the code again in the future.
-There are other, possibly betteer ways of achieving the same goal, but I found that this works well for me.
+When building an application, there are times where you need one set of environment variables during the build step, and a different set during runtime. I encountered this challenge in one of my projects and came up with a solution that worked well in that context.
+
+There are certainly other ways to solve this problem—some may even be more robust or suited to specific environments(modifying the bundle post build with a bash script comes to mind)—but this approach has worked reliably for my needs. Hoping that someone finds this helpful.
