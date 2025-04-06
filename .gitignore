@@ -1,3 +1,6 @@
+.gitignore
+index.html
+.npmignore
 # Logs
 logs
 *.log

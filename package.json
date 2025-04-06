@@ -4,7 +4,7 @@
   "version": "1.0.2",
   "description": "Read enironment variables from a file and dynamically change them in javascript runtime",
   "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
+  "types": "./lib/types/index.d.ts",
   "type": "module",
   "scripts": {
     "clean": "del-cli ./lib",
