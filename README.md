@@ -33,6 +33,10 @@ Import the methods you need. For example:
 import { init, getEnvVariables } from "env-change-runtime";
 ```
 
+## Note for Vite or Next.js users
+
+If you are using Vite or Next.js make sure you put your .env file in your `public` folder in order to serve it statically from your http server, otherwise this won't work.
+
 ## Initialization
 
 Before you can access environment variables, you must initialize the library. This is done with the `init` method.
